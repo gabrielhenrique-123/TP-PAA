@@ -31,16 +31,16 @@ def solve_sat(formula, var_count):
     """Resolve o problema de SAT usando Backtracking."""
     return backtrack(formula, [], var_count)
 
-def read_sat_input(file_path):
-    """Lê a entrada do arquivo de SAT."""
-    with open(file_path, 'r') as f:
-        var_count = int(f.readline().strip())
-        formula = [list(map(int, line.strip().split())) for line in f if line.strip()]
-    return var_count, formula
-
 if __name__ == "__main__":
-    file_path = "sat_input.txt"  # Substituir pelo caminho correto
-    var_count, formula = read_sat_input(file_path)
+    # Exemplo de entrada direta para o problema de SAT
+    var_count = 3
+    formula = [
+        [1, 1, 1],
+        [1, 0, -1],
+        [-1, 1, 0],
+        [0, -1, 1],
+        [0, 0, 0]
+    ]
     
     start_time = time.time()
     solution = solve_sat(formula, var_count)

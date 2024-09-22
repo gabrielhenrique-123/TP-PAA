@@ -20,21 +20,25 @@ def find_max_clique(graph, num_vertices):
     branch_and_bound_clique(graph, candidates, [], max_clique)
     return max_clique[0]
 
-def read_graph_input(file_path):
-    """Lê o grafo do arquivo de entrada."""
-    with open(file_path, 'r') as f:
-        num_vertices = int(f.readline().strip())
-        graph = [list(map(int, line.strip().split())) for line in f if line.strip()]
-    return num_vertices, graph
-
 if __name__ == "__main__":
-    file_path = "clique_input.txt"  # Substituir pelo caminho correto
-    num_vertices, graph = read_graph_input(file_path)
+    # Exemplo de entrada direta para o problema de Clique
+    num_vertices = 9
+    graph = [
+        [0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [1, 1, 0, 1, 1, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 1, 1],
+        [0, 0, 0, 0, 1, 0, 1, 0, 1],
+        [0, 0, 0, 0, 0, 0, 1, 1, 0]
+    ]
     
     start_time = time.time()
     max_clique = find_max_clique(graph, num_vertices)
     exec_time = time.time() - start_time
     
     print(f"Maior clique encontrado: {max_clique}")
-    print(f"Tamanho do clique: {len(max_clique)}")
+    print(f"Vértices do clique: {', '.join(map(str, max_clique))}")
     print(f"Tempo de execução: {exec_time:.4f} segundos")
