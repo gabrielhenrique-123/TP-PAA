@@ -5,10 +5,8 @@ import time
 
 def read_graph_from_file(filename):
     with open(filename, 'r') as file:
-        # Lê a quantidade de vértices da primeira linha
         num_vertices = int(file.readline().strip())
         
-        # Lê as próximas linhas e monta a matriz de adjacência
         graph = []
         for _ in range(num_vertices):
             row = list(map(int, file.readline().strip().split()))
@@ -38,7 +36,7 @@ def find_max_clique(graph, num_vertices):
 
 if __name__ == "__main__":
     # Nome do arquivo com a matriz de adjacência
-    filename = "Entradas/grafo_200.txt"  # Certifique-se de que o arquivo esteja no mesmo diretório
+    filename = "Entradas/grafo_15.txt"  # Certifique-se de que o arquivo esteja no mesmo diretório
     
     # Lê o grafo do arquivo
     graph, num_vertices = read_graph_from_file(filename)
