@@ -35,13 +35,11 @@ def find_max_clique(graph, num_vertices):
     return max_clique[0]
 
 if __name__ == "__main__":
-    # Nome do arquivo com a matriz de adjacência
-    filename = "Entradas/grafo_15.txt"  # Certifique-se de que o arquivo esteja no mesmo diretório
     
-    # Lê o grafo do arquivo
+    filename = "Entradas/grafo_15.txt"
+    
     graph, num_vertices = read_graph_from_file(filename)
 
-    # Encontra o maior clique
     start_time = time.time()
     max_clique = find_max_clique(graph, num_vertices)
     exec_time = time.time() - start_time
